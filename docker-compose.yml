@@ -2,9 +2,11 @@ version: '3.8'
 
 services:
   frontend:
-    image: ayush272002/chat-app:frontend
-    environment:
-      - NEXT_PUBLIC_WS_BASE_URL=ws://backend:8080
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+      args:
+        NEXT_PUBLIC_WS_URL: ws://localhost:8080  
     ports:
       - "3000:3000"
     depends_on:

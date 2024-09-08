@@ -24,12 +24,15 @@ jobs:
 
       - name: Build and push frontend
         run: |
-          docker build -f docker/Dockerfile.frontend -t ayush272002/chat-app:frontend .
+          docker build -f docker/Dockerfile.frontend \
+            --build-arg NEXT_PUBLIC_WS_URL=${{ secrets.NEXT_PUBLIC_WS_URL }} \
+            -t ayush272002/chat-app:frontend .
           docker push ayush272002/chat-app:frontend
 
       - name: Build and push backend
         run: |
-          docker build -f docker/Dockerfile.backend -t ayush272002/chat-app:backend .
+          docker build -f docker/Dockerfile.backend \
+            -t ayush272002/chat-app:backend .
           docker push ayush272002/chat-app:backend
 
       - name: Verify frontend image by pulling
