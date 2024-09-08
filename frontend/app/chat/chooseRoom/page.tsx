@@ -35,12 +35,12 @@ export default function ChooseRoom() {
             type="text"
             value={roomId}
             onChange={(e) => setRoomId(e.target.value)}
-            className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all bg-gray-200/90 placeholder-gray-600"
+            className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all bg-gray-200/90 placeholder-gray-600 text-black"
             placeholder="Enter room ID"
           />
           <button
             onClick={handleSubscribe}
-            className="w-full py-3 bg-gradient-to-r from-green-600 to-green-400 text-white rounded-full shadow-lg hover:from-green-500 hover:to-green-300 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-400"
+            className="w-full py-3 bg-gradient-to-r from-green-500 via-green-400 to-green-600 text-white rounded-full shadow-lg transform transition-transform hover:scale-105 hover:from-green-400 hover:via-green-300 hover:to-green-500 duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50"
           >
             Join Room
           </button>

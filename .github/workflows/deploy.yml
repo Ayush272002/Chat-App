@@ -1,0 +1,43 @@
+name: Build, Deploy, and Verify Docker Images
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy-verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push frontend
+        run: |
+          docker build -f docker/Dockerfile.frontend -t ayush272002/chat-app:frontend .
+          docker push ayush272002/chat-app:frontend
+
+      - name: Build and push backend
+        run: |
+          docker build -f docker/Dockerfile.backend -t ayush272002/chat-app:backend .
+          docker push ayush272002/chat-app:backend
+
+      - name: Verify frontend image by pulling
+        run: |
+          docker pull ayush272002/chat-app:frontend
+          docker images | grep ayush272002/chat-app
+
+      - name: Verify backend image by pulling
+        run: |
+          docker pull ayush272002/chat-app:backend
+          docker images | grep ayush272002/chat-app

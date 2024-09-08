@@ -1,6 +1,6 @@
 const WS_BASE_URL = process.env.NEXT_PUBLIC_WS_BASE_URL as string;
 
-export class SignalingManager { 
+export class SignalingManager {
   private ws: WebSocket;
   private static instance: SignalingManager;
   private bufferedMessages: any[] = [];
@@ -36,7 +36,7 @@ export class SignalingManager {
       const message = event.data;
       console.log("Message received from server:", message);
       if (this.onMessageCallback) {
-        this.onMessageCallback(message); 
+        this.onMessageCallback(message);
       }
     };
 
