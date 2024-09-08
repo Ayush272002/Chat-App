@@ -4,6 +4,10 @@ A scalable chat application built using **Next.js**, **Tailwind**, **WebSockets*
 
 When a user sends a message, the WebSocket server forwards it to the Redis Pub/Sub system, which broadcasts it to all WebSocket servers subscribed to that room. This architecture allows seamless communication between users across different servers.
 
+Check out the live preview of the app: [Chat App](https://chat-app-ayush.vercel.app)
+
+**Note**: It might take a little time for messages to send initially since the WebSocket server is deployed on a free tier, which may cause some delay when restarting.
+
 ## Features:
 - **Real-time messaging** across multiple rooms.
 - **Scalable architecture** utilizing WebSockets and Redis.
