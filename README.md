@@ -16,6 +16,7 @@ When a user sends a message, the WebSocket server forwards it to the Redis Pub/S
 - Websockets
 - Redis Pub-Subs
 - Docker
+- CI/CD for deployment to docker hub
 
 ## Architecture
 
