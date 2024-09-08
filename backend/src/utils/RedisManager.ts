@@ -10,7 +10,6 @@ export class RedisManager {
 
   private constructor() {
     const redisUrl = process.env.REDIS_URL || "redis://localhost:6379";
-    console.log(`Connecting to Redis at ${redisUrl}`);
     this.client = createClient({ url: redisUrl });
     this.client.connect();
 
